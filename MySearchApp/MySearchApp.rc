@@ -1,0 +1,66 @@
+﻿#include <winuser.h>
+#include "resource.h"
+
+STRINGTABLE
+BEGIN
+// English
+IDS_SEARCH_TITLE_EN "Search"
+IDS_ENTER_QUERY_EN "Enter search query:"
+IDS_RESULTS_TITLE_EN "Search Results"
+IDS_FOUND_MATCHES_EN "Found matches: %d"
+IDS_NEXT_EN "Next"
+IDS_CLOSE_EN "Close"
+IDS_NO_MATCHES_EN "No matches found"
+IDS_SEARCH_CANCELLED_EN "Search cancelled"
+IDS_NO_FILE_EN "No file path provided"
+IDS_OPEN_FAIL_EN "Failed to open file"
+IDS_OK_EN "OK"
+IDS_CANCEL_EN "Cancel"
+IDS_SEARCH_EN "Search"
+IDS_OUT_OF_EN "of"
+IDS_EXACT_EN "Exact search"
+IDS_FUZZY_EN "Fuzzy search"
+END
+
+STRINGTABLE
+BEGIN
+// Russian
+IDS_SEARCH_TITLE_RU "Поиск"
+IDS_ENTER_QUERY_RU "Введите запрос:"
+IDS_RESULTS_TITLE_RU "Результаты поиска"
+IDS_FOUND_MATCHES_RU "Найдено совпадений: %d"
+IDS_NEXT_RU "Далее"
+IDS_CLOSE_RU "Закрыть"
+IDS_NO_MATCHES_RU "Совпадений не найдено"
+IDS_SEARCH_CANCELLED_RU "Поиск отменён"
+IDS_NO_FILE_RU "Нет пути к файлу"
+IDS_OPEN_FAIL_RU "Не удалось открыть файл"
+IDS_OK_RU "OK"
+IDS_CANCEL_RU "Отмена"
+IDS_SEARCH_RU "Поиск"
+IDS_OUT_OF_RU "из"
+IDS_EXACT_RU "Точный поиск"
+IDS_FUZZY_RU "Примерный поиск"
+END
+
+SEARCH_DLG DIALOG 0, 0, 230, 80
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU | DS_CENTER
+CAPTION "Search"
+FONT 8, "MS Shell Dlg"
+BEGIN
+LTEXT "Enter search query:", IDC_QUERY_LABEL, 10, 10, 100, 10
+EDITTEXT IDC_EDIT, 10, 25, 150, 12, ES_AUTOHSCROLL | WS_BORDER
+DEFPUSHBUTTON "Search", IDC_SEARCH, 170, 25, 50, 14
+RADIOBUTTON "Exact search", IDC_EXACT, 10, 45, 100, 10, WS_TABSTOP
+RADIOBUTTON "Fuzzy search", IDC_FUZZY, 10, 60, 100, 10, WS_TABSTOP
+END
+
+RESULTS_DLG DIALOG 0, 0, 200, 60
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU | DS_CENTER
+CAPTION "Search Results"
+FONT 8, "MS Shell Dlg"
+BEGIN
+LTEXT "Found matches: 0", IDC_FOUND_LABEL, 10, 10, 180, 10
+DEFPUSHBUTTON "Next", IDC_NEXT, 50, 35, 50, 14
+PUSHBUTTON    "Close", IDC_CLOSE, 110, 35, 50, 14
+END
